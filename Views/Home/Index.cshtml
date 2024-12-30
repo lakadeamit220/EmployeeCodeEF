@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EmployeeCodeEF.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee Carousel";
+}
+
+<h1 class="text-center mb-5">Employee Details</h1>
+
+<div id="employeeCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 800px; margin: 0 auto;">
+    <div class="carousel-inner" style="padding: 20px; background-color: #f8f9fa; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        @foreach (var employee in Model)
+        {
+            <div class="carousel-item @(employee == Model.First() ? "active" : "")">
+                <div class="d-flex justify-content-center">
+                    @await Html.PartialAsync("_EmployeeCard", employee)
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#employeeCarousel" data-bs-slide="prev" style="filter: brightness(0) invert(1);">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#employeeCarousel" data-bs-slide="next" style="filter: brightness(0) invert(1);">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

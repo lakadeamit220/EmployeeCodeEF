@@ -1,0 +1,54 @@
+﻿@model EmployeeCodeEF.Models.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<h1 class="text-center my-5">@ViewData["Title"]</h1>
+
+<h4 class="text-center mb-4">Create New Employee</h4>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <strong>Employee Information</strong>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <!-- Display Validation Errors -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Name Field -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <!-- Position Field -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Position" class="control-label"></label>
+                        <input asp-for="Position" class="form-control" />
+                        <span asp-validation-for="Position" class="text-danger"></span>
+                    </div>
+
+                    <!-- Salary Field -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Salary" class="control-label"></label>
+                        <input asp-for="Salary" class="form-control" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group text-center mb-3">
+                        <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

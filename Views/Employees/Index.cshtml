@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EmployeeCodeEF.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<!-- Page Header -->
+<h1 class="text-center my-4">@ViewData["Title"]</h1>
+
+<!-- Create New Button -->
+<p class="text-end">
+    <a class="btn btn-primary" asp-action="Create">Create New Employee</a>
+</p>
+
+<!-- Employee Table -->
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Position)</th>
+            <th>@Html.DisplayNameFor(model => model.Salary)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"
+                       onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
