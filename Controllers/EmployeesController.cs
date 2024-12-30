@@ -19,7 +19,7 @@ namespace EmployeeCodeEF.Controllers
             _context = context;
         }
 
-        // GET: Employees
+        // GET: Employees(All)
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employees.ToListAsync());
