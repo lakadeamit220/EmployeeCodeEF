@@ -12,6 +12,7 @@ namespace EmployeeCodeEF
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            //DBContext Services
             builder.Services.AddDbContext<EmployeeDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("dbcs")));
             var app = builder.Build();
 
